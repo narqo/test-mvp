@@ -1,15 +1,18 @@
 modules.define(
     'contacts-presenter',
-    ['inherit', 'presenter', 'contacts-service'],
-    function(provide, inherit, Presenter, ContactsService) {
+    ['inherit', 'presenter'],
+    function(provide, inherit, Presenter) {
 
 provide(inherit(Presenter, {
-    __constructor : function(eventBus, viewCls) {
+    __constructor : function(eventBus, viewCls, rpcService) {
         this.__base(eventBus, viewCls);
-        this._service = new ContactsService();
+        this._service = rpcService;
     },
 
     _run : function() {
+        this._createView();
+
+        // FIXME: do something with this part
         var ctx = this._view.domElem;
         this._viewCls
             .on(ctx, 'contact-add', this._onContactAdd, this)
@@ -30,10 +33,7 @@ provide(inherit(Presenter, {
     removeContacts : function(ids) {
         this._service
             .removeContacts(ids)
-            .then(function(newContacts) {
-                // TODO: map data
-                this._onGotContacts(newContacts);
-            }, this);
+            .then(this._onGotContacts, this);
     },
 
     fetchContacts : function() {
@@ -42,8 +42,12 @@ provide(inherit(Presenter, {
             .then(this._onGotContacts, this);
     },
 
-    _onGotContacts : function(details) {
-        this._view.setData(details);
+    _onGotContacts : function(contacts) {
+        var data = [];
+        Object.keys(contacts).forEach(function(id) {
+            data.push(contacts[id]);
+        });
+        this._view.setData(data);
     },
 
     _onContactAdd : function() {

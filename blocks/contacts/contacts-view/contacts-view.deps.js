@@ -1,5 +1,8 @@
 [{
-    mustDeps : { block : 'i-bem', elems : 'dom' },
+    mustDeps : [
+        { block : 'i-bem', elems : 'dom' },
+        'bem-view'
+    ],
     shouldDeps : {
         block : 'action',
         mods : { type : 'button' }

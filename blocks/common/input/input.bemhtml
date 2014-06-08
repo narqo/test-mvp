@@ -1,0 +1,13 @@
+block('input')(
+    tag()('input'),
+    js()(true),
+    attrs()(function() {
+        var ctx = this.ctx,
+            attrs = {
+                name : ctx.name,
+                value : ctx.value
+            };
+
+        return attrs;
+    })
+);

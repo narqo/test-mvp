@@ -29,6 +29,7 @@ function getContactsLevels(config) {
     return [
         { path : 'libs/bem-core/common.blocks', check : false },
         { path : 'libs/bem-core/desktop.blocks', check : false },
+        'blocks/core',
         'blocks/common',
         'blocks/contacts',
     ].map(function(level) { return config.resolvePath(level) });

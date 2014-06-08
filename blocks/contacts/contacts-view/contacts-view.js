@@ -1,8 +1,11 @@
-modules.define('contacts-view', ['i-bem__dom', 'BEMHTML', 'jquery'], function(provide, BemDom, BEMHTML, $) {
+modules.define(
+    'contacts-view',
+    ['i-bem__dom', 'BEMHTML', 'bem-view'],
+    function(provide, BemDom, BEMHTML, BemView) {
 
-var block = this.name;
+var BLOCK_NAME = this.name;
 
-provide(BemDom.decl(block, {
+provide(BemView.decl(BLOCK_NAME, {
     setData : function(data) {
         BemDom.update(this.elem('list'), BEMHTML.apply(data.map(buildListRow)));
         return this;
@@ -19,7 +22,8 @@ provide(BemDom.decl(block, {
 
     _onLabelClick : function(e) {
         e.preventDefault();
-        this.emit('contact-delete', { ids : [2] });
+        //this.emit('contact-delete', { ids : [2] });
+        this.emit('contact-edit', { id : 2 });
     }
 }, {
     live : function() {
@@ -27,16 +31,11 @@ provide(BemDom.decl(block, {
         this
             .liveInitOnBlockInsideEvent('action', 'action', ptp._onAction)
             .liveBindTo('label', 'click', ptp._onLabelClick);
-            //.liveInitOnBlockInsideEvent('change', 'checkbox', ptp._onCheckboxChange);
     },
 
-    create : function(params) {
-        return BemDom.init($(BEMHTML.apply(this.build(params)))).bem(block);
-    },
-
-    build : function() {
+    buildBemjson : function() {
         return {
-            block : block,
+            block : BLOCK_NAME,
             content : [
                 { elem : 'head', content : buildHead() },
                 { elem : 'list' }
@@ -55,7 +54,7 @@ function buildHead() {
 function buildListRow(row) {
     return [
         { block : 'checkbox', id : row.id },
-        { block : block, elem : 'label', content : row.display_name }
+        { block : BLOCK_NAME, elem : 'label', content : row.display_name }
     ];
 }
 
