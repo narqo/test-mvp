@@ -1,0 +1,1 @@
+({ shouldDeps : 'app-controller' })

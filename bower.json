@@ -1,0 +1,15 @@
+{
+  "name": "test-mvp",
+  "version": "0.0.1",
+  "authors": [
+    "Vladimir Varankin <nek.narqo@gmail.com> (http://github.com/narqo)"
+  ],
+  "moduleType": [
+    "ym"
+  ],
+  "license": "WTFPL",
+  "private": true,
+  "devDependencies": {
+    "bem-core": "^2.2.2"
+  }
+}

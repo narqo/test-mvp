@@ -1,0 +1,17 @@
+{
+  "name": "test-mvp",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vladimir Varankin <nek.narqo@gmail.com> (http://github.com/narqo)",
+  "license": "WTFPL",
+  "devDependencies": {
+    "bh": "^2.0.0",
+    "enb": "^0.13.1",
+    "enb-diverse-js": "^0.1.0",
+    "enb-modules": "^0.1.2",
+    "bem-xjst": "^0.6.1"
+  }
+}

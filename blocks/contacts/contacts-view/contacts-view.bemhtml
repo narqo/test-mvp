@@ -1,0 +1,1 @@
+block('contacts-view').js()(true);

@@ -1,0 +1,4 @@
+block('button')(
+    js()(true),
+    tag()('button')
+);

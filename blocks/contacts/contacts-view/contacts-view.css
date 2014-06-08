@@ -1,0 +1,10 @@
+.contacts-view
+{
+
+}
+
+.contacts-view__label
+{
+    border: 1px solid red;
+    margin: 5px 0;
+}

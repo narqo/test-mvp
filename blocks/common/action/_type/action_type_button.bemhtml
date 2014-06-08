@@ -1,0 +1,10 @@
+block('action').mod('type', 'button').def()(function() {
+    return applyCtx({
+        block : 'button',
+        mix : { block : this.block, mods : this.mods, js : this.ctx.js || true },
+        content : {
+            elem : 'text',
+            content : this.ctx.text
+        }
+    });
+});
