@@ -1,6 +1,6 @@
 modules.define('Widget', ['Button'], function(provide, Widget, Button) {
 
-provide(Widget.declMod({ modName : 'type', modVal : 'button' }, {
+provide(Widget.decl({ modName : 'type', modVal : 'button' }, {
     _onClick : function() {
         this.emit('action');
     }

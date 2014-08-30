@@ -1,0 +1,6 @@
+({
+    shouldDeps : [
+        { elem : 'source' },
+        'image'
+    ]
+})

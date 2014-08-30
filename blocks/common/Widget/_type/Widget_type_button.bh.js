@@ -1,4 +1,4 @@
-bh.match('Witton_type_button', function(ctx, json) {
+bh.match('Widget_type_button', function(ctx, json) {
     var mods = ctx.mods(),
         mix = ctx.mix(),
         thisMix = [{ block : 'Widget', mods : mods }];
